@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Financeiro</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <button class="menu-flutuante" id="abrirMenu">☰</button>
+
+  <aside class="menu-lateral" id="menuLateral">
+    <div class="menu-topo">
+      <h2>MENU</h2>
+      <button class="fechar-menu" id="fecharMenu">✕</button>
+    </div>
+
+    <nav class="menu-links">
+      <a href="index.html">📥 Cadastro</a>
+      <a href="dashboard.html">📊 Dashboard</a>
+    </nav>
+  </aside>
+
+  <div class="overlay" id="overlayMenu"></div>
+
+  <main class="dashboard-container">
+    <section class="dashboard-topo">
+      <div>
+        <h1>DASHBOARD FINANCEIRO</h1>
+        <p>Painel dinâmico das movimentações do período</p>
+      </div>
+
+      <div class="filtro-periodo">
+        <div class="campo-periodo">
+          <label for="dataInicio">DE</label>
+          <input type="date" id="dataInicio">
+        </div>
+
+        <div class="campo-periodo">
+          <label for="dataFim">ATÉ</label>
+          <input type="date" id="dataFim">
+        </div>
+
+        <button id="btnFiltrar" class="btn-periodo" type="button">PERÍODO</button>
+      </div>
+    </section>
+
+    <section class="cards-resumo">
+      <div class="card-resumo">
+        <h3>ENTRADA</h3>
+        <p id="cardEntrada">R$ 0,00</p>
+      </div>
+
+      <div class="card-resumo">
+        <h3>SAÍDA</h3>
+        <p id="cardSaida">R$ 0,00</p>
+      </div>
+
+      <div class="card-resumo">
+        <h3>CARTÃO</h3>
+        <p id="cardCartao">R$ 0,00</p>
+      </div>
+
+      <div class="card-resumo">
+        <h3>GASOLINA</h3>
+        <p id="cardGasolina">R$ 0,00</p>
+      </div>
+
+      <div class="card-resumo">
+        <h3>MERCADO</h3>
+        <p id="cardMercado">R$ 0,00</p>
+      </div>
+
+      <div class="card-resumo">
+        <h3>INVESTIMENTO</h3>
+        <p id="cardInvestimento">R$ 0,00</p>
+      </div>
+
+      <div class="card-resumo destaque-saldo">
+        <h3>SALDO RESTANTE</h3>
+        <p id="cardSaldo">R$ 0,00</p>
+      </div>
+    </section>
+
+    <section class="grade-graficos">
+      <div class="grafico-card">
+        <h2>ENTRADAS X SAÍDAS</h2>
+        <div class="grafico-box">
+          <canvas id="graficoBarrasVerticais"></canvas>
+        </div>
+      </div>
+
+      <div class="grafico-card">
+        <h2>EVOLUÇÃO DO PERÍODO</h2>
+        <div class="grafico-box">
+          <canvas id="graficoLinhaArea"></canvas>
+        </div>
+      </div>
+
+      <div class="grafico-card">
+        <h2>DISTRIBUIÇÃO DE SAÍDAS</h2>
+        <div class="grafico-box">
+          <canvas id="graficoPizzaSaidas"></canvas>
+        </div>
+      </div>
+
+      <div class="grafico-card">
+        <h2>VILÃO FINANCEIRO</h2>
+        <div class="grafico-box">
+          <canvas id="graficoViloes"></canvas>
+        </div>
+      </div>
+
+      <div class="grafico-card grafico-largo">
+        <h2>VARIAÇÃO DE USO DO CARTÃO</h2>
+        <div class="grafico-box grafico-box-largo">
+          <canvas id="graficoCartaoLinha"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="painel-relatorio">
+      <div class="relatorio-topo">
+        <h2>RELATÓRIO DE MOVIMENTAÇÕES</h2>
+        <p id="resumoPeriodo">Carregando período...</p>
+      </div>
+
+      <div id="relatorioMovimentacoes" class="lista-relatorio">
+        <p class="carregando">Carregando movimentações...</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="java/supabase.js"></script>
+  <script src="java/dashboard.js"></script>
+</body>
+</html>

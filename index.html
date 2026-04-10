@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Financeiro</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <button class="menu-flutuante" id="abrirMenu">☰</button>
+
+  <aside class="menu-lateral" id="menuLateral">
+    <div class="menu-topo">
+      <h2>MENU</h2>
+      <button class="fechar-menu" id="fecharMenu">✕</button>
+    </div>
+
+    <nav class="menu-links">
+      <a href="index.html">📥 Cadastro</a>
+      <a href="dashboard.html">📊 Dashboard</a>
+    </nav>
+  </aside>
+
+  <div class="overlay" id="overlayMenu"></div>
+
+  <main class="painel">
+    <section class="card">
+      <div class="topo">
+        <h1>PAINEL DE MOVIMENTAÇÕES</h1>
+        <p class="subtitulo">Cadastro financeiro conectado ao Supabase</p>
+      </div>
+
+      <form id="form-movimentacao" class="formulario">
+        <div class="grupo">
+          <label for="tipoMovimentacao">TIPO DA MOVIMENTAÇÃO</label>
+          <select id="tipoMovimentacao" required>
+            <option value="">Selecione</option>
+            <option value="entrada">ENTRADA</option>
+            <option value="saida">SAIDA</option>
+          </select>
+        </div>
+
+        <div class="grupo">
+          <label for="subcategoria">SUBCATEGORIA</label>
+          <select id="subcategoria" required>
+            <option value="">Selecione</option>
+            <option value="ENTRADA FIXA">ENTRADA FIXA</option>
+            <option value="ENTRADA VARIAVEL">ENTRADA VARIAVEL</option>
+            <option value="SAIDA FIXA">SAIDA FIXA</option>
+            <option value="SAIDA VARIAVEL">SAIDA VARIAVEL</option>
+            <option value="GASOLINA">GASOLINA</option>
+            <option value="MERCADO">MERCADO</option>
+            <option value="INVESTIMENTOS">INVESTIMENTOS</option>
+            <option value="CARTÃO DE CREDITO">CARTÃO DE CREDITO</option>
+          </select>
+        </div>
+
+        <div class="grupo">
+          <label for="dataMovimentacao">DATA</label>
+          <input type="date" id="dataMovimentacao" required>
+        </div>
+
+        <div class="grupo">
+          <label for="valorMovimentacao">VALOR (R$)</label>
+          <input type="number" id="valorMovimentacao" step="0.01" min="0" placeholder="0.00" required>
+        </div>
+
+        <div class="grupo">
+          <label for="descricaoMovimentacao">DESCRIÇÃO</label>
+          <textarea id="descricaoMovimentacao" rows="4" placeholder="Digite a descrição da movimentação..." required></textarea>
+        </div>
+
+        <button type="submit" class="botao-salvar">SALVAR MOVIMENTAÇÃO</button>
+      </form>
+
+      <p id="resultado" class="resultado"></p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="java/supabase.js"></script>
+  <script src="java/script.js"></script>
+</body>
+</html>
